@@ -1,0 +1,31 @@
+services:
+
+  #Api
+  kips-learn-api:
+    image: themesanasang/kips-learn-api:latest
+    container_name: kips-learn-api
+    restart: always
+    user: root
+    environment:
+      - NODE_ENV=production
+      - PORT=3356
+    env_file:
+      - ./config/.env
+    ports:
+      - 3356:3356
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ln -snf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+        echo "Asia/Bangkok" > /etc/timezone
+        node ./bin/server.js -- --reset-cache --production
+
+  #Web
+  kips-learn-web:
+    image: themesanasang/kips-learn-web:latest
+    container_name: kips-learn-web
+    restart: always
+    user: root
+    ports:
+      - "80:80"

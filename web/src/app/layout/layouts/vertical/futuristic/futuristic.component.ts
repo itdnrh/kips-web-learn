@@ -115,7 +115,7 @@ export class FuturisticLayoutComponent implements OnInit, OnDestroy {
                     },
                     {
                         id   : 'setting.departmax',
-                        title: 'ตำแหน่งงาน',
+                        title: 'แผนก',
                         type : 'basic',
                         link : '/setting/departmax',
                         icon    : 'heroicons_outline:cog-8-tooth',

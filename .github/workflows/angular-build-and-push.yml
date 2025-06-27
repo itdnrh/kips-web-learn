@@ -1,0 +1,32 @@
+name: Angular Deploy
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  main:
+    runs-on: Ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build Image Web
+        run: docker build --no-cache ./web/ -t 23839/kips-learn-web:latest
+
+      - name: Push Image Web To Docker Hub
+        run: docker push 23839/kips-learn-web:latest
+
+      - name: Build Image Api
+        run: docker build --no-cache ./api/ -t 23839/kips-learn-api:latest
+
+      - name: Push Image Api To Docker Hub
+        run: docker push 23839/kips-learn-api:latest
