@@ -1,7 +1,7 @@
 name: Angular Deploy
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "max" ]
 
 jobs:
   main:
