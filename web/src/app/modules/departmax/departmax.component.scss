@@ -1,0 +1,15 @@
+.user-grid {
+    grid-template-columns: 60px 200px 220px 100px 100px;
+
+    @screen sm {
+        grid-template-columns: 60px 230px 200px 100px 100px;
+    }
+
+    @screen md {
+        grid-template-columns: 60px 320px 200px 100px 100px;
+    }
+
+    @screen lg {
+        grid-template-columns: 60px 200px 1000px 100px 100px;
+    }
+}
