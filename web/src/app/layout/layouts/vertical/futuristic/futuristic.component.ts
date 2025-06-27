@@ -104,6 +104,21 @@ export class FuturisticLayoutComponent implements OnInit, OnDestroy {
                         title: 'ผู้ใช้งาน',
                         type : 'basic',
                         link : '/setting/user',
+                        icon    : 'heroicons_outline:cog-8-tooth',
+                    },
+                    {
+                        id   : 'setting.position',
+                        title: 'ตำแหน่งงาน',
+                        type : 'basic',
+                        link : '/setting/position',
+                        icon    : 'heroicons_outline:cog-8-tooth',
+                    },
+                    {
+                        id   : 'setting.departmax',
+                        title: 'ตำแหน่งงาน',
+                        type : 'basic',
+                        link : '/setting/departmax',
+                        icon    : 'heroicons_outline:cog-8-tooth',
                     },
                 ]
             }

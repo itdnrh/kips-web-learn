@@ -1,0 +1,74 @@
+<div class="flex flex-col max-w-240 md:min-w-160 max-h-screen -m-6">
+    <!-- Header -->
+    <div class="flex flex-0 items-center justify-between h-16 pr-3 sm:pr-5 pl-6 sm:pl-8 bg-blue-950 text-on-primary">
+        <div class="text-xl font-medium"> {{ title }}</div>
+        <button
+            mat-icon-button
+            (click)="close()"
+            [tabIndex]="-1">
+            <mat-icon
+                class="text-current"
+                [svgIcon]="'heroicons_outline:x-mark'"></mat-icon>
+        </button>
+    </div>
+
+    <ng-container>
+        
+        <form #f="ngForm" class="flex flex-col flex-auto p-6 sm:p-8 overflow-y-auto" novalidate>
+
+            <!-- ชื่อ-นามสกุล -->
+            <div class="mt-4">
+                <label for="name">ชื่อแผนก</label>
+                <input 
+                    id="name" 
+                    required
+                    #nameCtrl="ngModel"
+                    [ngModel]="name" 
+                    [ngClass]="{ 'border-red-600': saveClick && nameCtrl.errors?.required }"
+                    name="name" 
+                    class="w-full p-2 text-2xl border rounded-md">
+            </div>
+
+            <!-- username -->
+            <div class="mt-3">
+                <label for="detail">รายละเอียด</label>
+                <input 
+                    id="detail" 
+                    required
+                    #nameCtrl2="ngModel"
+                    [ngModel]="detail" 
+                    [ngClass]="{ 'border-red-600': saveClick && nameCtrl2.errors?.required }"
+                    name="detail" 
+                    class="w-full p-2 text-2xl border rounded-md">
+            </div>
+
+            <div class="flex flex-row gt-sm:flex-row">
+                <div class="flex flex-col">
+                    <mat-checkbox
+                        [ngModel]="status" 
+                        name="status" 
+                        class="mb-2"
+                        [color]="'primary'">
+                        เปิดใช้งาน
+                    </mat-checkbox>
+                </div>
+            </div>
+
+            <!-- Add Actions -->
+            <ng-container>
+                <div class="flex items-center justify-end mt-7">
+                    <button (click)="close()" mat-stroked-button>
+                        ยกเลิก
+                    </button>
+                    <button
+                        class="px-6 ml-3 bg-blue-950 text-white"
+                        mat-flat-button
+                        (click)="save()">
+                        บันทึก
+                    </button>
+                </div>
+            </ng-container>
+        </form>
+
+    </ng-container>
+</div>

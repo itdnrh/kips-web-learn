@@ -52,6 +52,8 @@ export const appRoutes: Route[] = [
         children: [
             {path: 'dashboard-system', loadChildren: () => import('app/modules/dashboard/system/system.routes')},
             {path: 'setting/user', loadChildren: () => import('app/modules/user/user.routes')},
+            {path: 'setting/position', loadChildren: () => import('app/modules/position/position.routes')},
+            {path: 'setting/departmax', loadChildren: ()=> import('app/modules/departmax/departmax.routes')}
         ]
     },
 
